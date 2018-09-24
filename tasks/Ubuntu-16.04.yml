@@ -2,3 +2,9 @@
     apt:
         name: libvirt-bin,qemu-kvm,qemu-utils,genisoimage
 
+-   name: start, enable libvirtd service
+    service:
+        name: libvirt-bin
+        state: started
+        enabled: yes
+    when: vm_libvirt_cloudinit_host_start_services

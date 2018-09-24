@@ -5,9 +5,3 @@
     -   "{{ ansible_distribution }}-{{ ansible_distribution_version}}.yml"
     -   "{{ ansible_distribution }}.yml"
 
--   name: start, enable libvirtd service
-    service:
-        name: libvirtd
-        state: started
-        enabled: yes
-    when: vm_libvirt_cloudinit_host_start_services
