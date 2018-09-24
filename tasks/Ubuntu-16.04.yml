@@ -1,6 +1,6 @@
 -   name: install packages
     apt:
-        name: libvirt-bin,qemu-kvm,qemu-utils,genisoimage,python-libvirt,qemu-user,libxml2-utils
+        name: libvirt-bin,qemu-kvm,qemu-utils,genisoimage,python-libvirt,qemu-user,libxml2-utils,python-netaddr
 
 -   name: start, enable libvirtd service
     service:
