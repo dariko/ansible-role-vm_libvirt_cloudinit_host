@@ -1,3 +1,4 @@
 -   hosts: localhost
     roles:
     -   role: vm_libvirt_cloudinit_host
+        vm_libvirt_cloudinit_host_start_services: no
