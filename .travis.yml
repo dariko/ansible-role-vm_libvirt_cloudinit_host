@@ -1,0 +1,26 @@
+---
+language: generic
+env:
+    matrix:
+    -   >
+        NAME=centos7
+        DOCKER_IMAGE=centos:7
+    -   >
+        NAME=ubuntu1604
+        DOCKER_IMAGE=ubuntu:16.04
+    
+  
+sudo: required
+services:
+-   docker
+  
+before_install:
+-   docker pull ${DOCKER_IMAGE}
+-   docker run -v $(pwd):/repo --name ${NAME} -d ${DOCKER_IMAGE} sleep 1d
+-   docker exec -it ${NAME} /repo/tests/pre_${NAME}.sh
+-   docker exec -it ${NAME} pip install ansible==2.6.3
+
+#install:
+
+script:
+-   true
