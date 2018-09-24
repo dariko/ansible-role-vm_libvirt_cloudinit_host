@@ -1,10 +1,9 @@
--   name: enable repo centos-release-qemu-ev
-    yum:
-        name: centos-release-qemu-ev
-
--   name: install packages
-    yum:
-        name: libvirt,qemu-kvm-ev,qemu-img-ev,genisoimage,libvirt-python,centos-release-qemu-ev
+-   name: execute os specific tasks
+    include_tasks: "{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+    with_first_found:
+    -   "{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+    -   "{{ ansible_distribution }}-{{ ansible_distribution_version}}.yml"
+    -   "{{ ansible_distribution }}.yml"
 
 -   name: start, enable libvirtd service
     service:
