@@ -5,3 +5,10 @@
 -   name: install packages
     yum:
         name: libvirt,qemu-kvm-ev,qemu-img-ev,genisoimage,libvirt-python,centos-release-qemu-ev
+
+-   name: start, enable libvirtd service
+    service:
+        name: libvirtd
+        state: started
+        enabled: yes
+    when: vm_libvirt_cloudinit_host_start_services
