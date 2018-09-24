@@ -4,7 +4,7 @@
 
 -   name: install packages
     yum:
-        name: libvirt,qemu-kvm-ev,qemu-img-ev,genisoimage,libvirt-python,centos-release-qemu-ev,libvirt-python
+        name: libvirt,qemu-kvm-ev,qemu-img-ev,genisoimage,libvirt-python,centos-release-qemu-ev,libvirt-python,libxml2
 
 -   name: start, enable libvirtd service
     service:
