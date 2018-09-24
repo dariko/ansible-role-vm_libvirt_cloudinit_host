@@ -16,11 +16,13 @@ services:
   
 before_install:
 -   docker pull ${DOCKER_IMAGE}
--   docker run -v $(pwd):/repo --name ${NAME} -d ${DOCKER_IMAGE} sleep 1d
+-   docker run -v $(pwd):/roles/vm_libvirt_cloudinit_host --name ${NAME} -d ${DOCKER_IMAGE} sleep 1d
 -   docker exec -it ${NAME} /repo/tests/pre_${NAME}.sh
 -   docker exec -it ${NAME} pip install ansible==2.6.3
 
-#install:
-
 script:
--   true
+-   |
+    docker exec -it ${NAME} bash -c "
+        cd /roles/vm_libvirt_cloudinit_host/tests
+        ansible-playbook test.yml
+    "
