@@ -10,3 +10,4 @@
         name: libvirtd
         state: started
         enabled: yes
+    when: vm_libvirt_cloudinit_host_start_services
